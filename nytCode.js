@@ -1,17 +1,17 @@
 //Create an object to handle the parameters of the search
 var paramObject = {
-    searchTerm : '&fq=sports&page=0',
+    searchTerm : '&fq=',
     setSearchTerm : function(term){
       //If the term is not empty and exists, set the obect to the term
       this.searchTerm = term != null && term != ''? this.searchTerm + term : null;
     },
     beginDate: '&begin_date=',
     setBeginDate: function(year){
-        this.beginDate = year != null && year != ''? this.beginDate + year + '0101' : null;
+        this.beginDate = year != null && year != ''? this.beginDate + year + '0101' : '';
     },
     endDate : '&end_date=',
     setEndDate: function(year){
-        this.endDate = year != null && year != ''? this.endDate + year + '0101' : null;
+        this.endDate = year != null && year != ''? this.endDate + year + '0101' : '';
     },
     limit : 10,
     setLimit: function(limit){
@@ -24,7 +24,9 @@ var requestObject = {
     api_key : '&api-key=8938b688f68e46318cfe7d6e16a91478',
     baseURL : 'https://api.nytimes.com/svc/search/v2/articlesearch.json?q=new+york+times&page=0&sort=newest',
     setURL : function(paramObject){
+        console.log(paramObject.searchTerm);
         return this.baseURL +  paramObject.searchTerm + paramObject.beginDate + paramObject.endDate +  this.api_key;
+        
     }
     
 };
@@ -32,9 +34,11 @@ var requestObject = {
 function retrieveArticles(parameters){
     //set the request object
     theURL = requestObject.setURL(parameters);
+    console.log(parameters.searchTerm);
+    console.log(theURL);
     $.ajax({
         url: theURL,
-        method: "GET"
+        method: "GET" 
     }).done(function(response){
         
         // return arrays for processing
@@ -92,7 +96,7 @@ function clearAll(){
 
 function initializeParamObject(){
   // Resets object to origina parameters
-  paramObject.searchTerm = '&fq=sports&page=0';
+  paramObject.searchTerm = '&fq=';
   paramObject.beginDate = '&begin_date=';
   paramObject.endDate = '&end_date='
   paramObject.limit = 10;
@@ -110,9 +114,11 @@ $(document).ready(function(){
 
   $("#run-search").on("click",function(event){
       event.preventDefault();
+ 
       initializeParamObject();
       //Get the values of the parameters and place in the paramObject
       var searchTerm = $('#search-term').val().replace(/\s+/g, "'");
+      console.log(searchTerm);
       var limit = $( "#num-records-select option:selected" ).text();
       var beginYear = $('#start-year').val();
       var endYear = $('#end-year').val();
@@ -124,7 +130,7 @@ $(document).ready(function(){
       paramObject.setEndDate(endYear);
 
       //Call the function to retrieve articles
-      
+      console.log(paramObject);
       retrieveArticles(paramObject);
   });
 
