@@ -1,0 +1,36 @@
+.evenSpan{
+ 
+    width: 1.5rem;
+    height: 1.25rem;
+    border-radius: 50%;
+    padding: 1rem;
+    font-size: 2rem;
+    margin: .25rem 1rem .25rem .5rem;
+    background-color: whitesmoke;
+    color:#2C3E50;
+}
+ 
+.oddSpan{
+    
+    background-color: #2C3E50;
+    color:whitesmoke;
+    width: 1.5rem;
+    height: 1.25rem;
+    border-radius: 50%;
+    padding: 1rem;
+    font-size: 2rem;
+    margin: .25rem 1rem .25rem .5rem;
+}
+a{
+    font-size: 3rem;
+    color: #20315A;
+}
+
+.evenClass{
+    background-color: #20315A;
+    color:whitesmoke;
+}
+
+#well-section div{
+    margin: .5rem .125rem 5rem .125rem;
+}

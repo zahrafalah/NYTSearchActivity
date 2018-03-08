@@ -11,11 +11,13 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
   <!-- Style to fix the issue of text extending past panel length -->
+  <link rel="stylesheet" href="styles.css" type="text/css">
   <style>
     .panel-body a {
       word-break: break-all;
     }
   </style>
+  
 </head>
 
 <body>
@@ -62,13 +64,14 @@
               <!-- Here we capture the Start Year Parameter-->
               <div class="form-group">
                 <label for="start-year">Start Year (Optional):</label>
-                <input type="text" class="form-control" id="start-year">
+                <!--<input type="text" class="form-control" id="start-year"> -->
+                <input type="number" class="form-control" id="start-year">
               </div>
 
               <!-- Here we capture the End Year Parameter -->
               <div class="form-group">
                 <label for="end-year">End Year (Optional):</label>
-                <input type="text" class="form-control" id="end-year">
+                <input type="number" class="form-control" id="end-year">
               </div>
 
               <!-- Here we have our final submit button -->
@@ -116,6 +119,8 @@
 
   <!-- jQuery JS -->
   <script src="https://code.jquery.com/jquery.js"></script>
+  <script  src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"  integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30="  crossorigin="anonymous"></script>
+ 
 
   <!-- Code to the JavaScript File -->
   <script src="nytCode.js"></script>
