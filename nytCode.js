@@ -22,7 +22,7 @@ var paramObject = {
 //Create an object to handle the api requests
 var requestObject = {
     api_key : '&api-key=8938b688f68e46318cfe7d6e16a91478',
-    baseURL : 'http://api.nytimes.com/svc/search/v2/articlesearch.json?q=new+york+times&page=0&sort=newest',
+    baseURL : 'https://api.nytimes.com/svc/search/v2/articlesearch.json?q=new+york+times&page=0&sort=newest',
     setURL : function(paramObject){
         return this.baseURL +  paramObject.searchTerm + paramObject.beginDate + paramObject.endDate +  this.api_key;
     }
